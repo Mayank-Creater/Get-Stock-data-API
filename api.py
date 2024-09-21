@@ -281,9 +281,13 @@ def data2():
 
     bnf_change = bnf_change.strip().replace('\r\n', '')
     bnf_price = bnf_price.strip().replace('\n', '')
-    bnf_price = bnf_price.strip().replace(',', '')
     nf_change = nf_change.strip().replace('\r\n', '')
     nf_price = nf_price.strip().replace('\n', '')
+
+    bnf_actual_price = bnf_price
+    nf_actual_price = nf_price
+
+    bnf_price = bnf_price.strip().replace(',', '')
     nf_price = nf_price.strip().replace(',', '')
 
     bnf_price = int(round(float(bnf_price)/1000, 1)*1000)
@@ -417,7 +421,7 @@ def data2():
             ],
             "pe_vol":bnf_pe_vol,
             "strike_price":bnf_strike,
-            "price": bnf_price,
+            "price": bnf_actual_price,
             "change": bnf_change
         },
         "NF":{
@@ -438,7 +442,7 @@ def data2():
             ],
             "pe_vol": nf_pe_vol,
             "strike_price": nf_strike,
-            "price": nf_price,
+            "price": nf_actual_price,
             "change": nf_change
         },
         "GIFT NIFTY": gift_change_value,
